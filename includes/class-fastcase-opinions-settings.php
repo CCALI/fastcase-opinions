@@ -109,111 +109,21 @@ class Fastcase_Opinions_Settings {
 
 		$settings['standard'] = array(
 			'title'					=> __( 'Standard', 'fastcase-opinions' ),
-			'description'			=> __( 'These are fairly standard form input fields.', 'fastcase-opinions' ),
+			'description'			=> __( 'Enter your Fastcase API key below.', 'fastcase-opinions' ),
 			'fields'				=> array(
+
 				array(
-					'id' 			=> 'text_field',
-					'label'			=> __( 'Some Text' , 'fastcase-opinions' ),
-					'description'	=> __( 'This is a standard text field.', 'fastcase-opinions' ),
-					'type'			=> 'text',
-					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', 'fastcase-opinions' )
-				),
-				array(
-					'id' 			=> 'password_field',
-					'label'			=> __( 'A Password' , 'fastcase-opinions' ),
-					'description'	=> __( 'This is a standard password field.', 'fastcase-opinions' ),
-					'type'			=> 'password',
-					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', 'fastcase-opinions' )
-				),
-				array(
-					'id' 			=> 'secret_text_field',
-					'label'			=> __( 'Some Secret Text' , 'fastcase-opinions' ),
-					'description'	=> __( 'This is a secret text field - any data saved here will not be displayed after the page has reloaded, but it will be saved.', 'fastcase-opinions' ),
+					'id' 			=> 'FCAPI_key_field',
+					'label'			=> __( 'Fastcase API Key' , 'fastcase-opinions' ),
+					'description'	=> __( 'This is your Fastcase PAI key. Please contact Fastcase about getting one.', 'fastcase-opinions' ),
 					'type'			=> 'text_secret',
 					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text', 'fastcase-opinions' )
+					'placeholder'	=> __( 'API Key', 'fastcase-opinions' )
 				),
-				array(
-					'id' 			=> 'text_block',
-					'label'			=> __( 'A Text Block' , 'fastcase-opinions' ),
-					'description'	=> __( 'This is a standard text area.', 'fastcase-opinions' ),
-					'type'			=> 'textarea',
-					'default'		=> '',
-					'placeholder'	=> __( 'Placeholder text for this textarea', 'fastcase-opinions' )
-				),
-				array(
-					'id' 			=> 'single_checkbox',
-					'label'			=> __( 'An Option', 'fastcase-opinions' ),
-					'description'	=> __( 'A standard checkbox - if you save this option as checked then it will store the option as \'on\', otherwise it will be an empty string.', 'fastcase-opinions' ),
-					'type'			=> 'checkbox',
-					'default'		=> ''
-				),
-				array(
-					'id' 			=> 'select_box',
-					'label'			=> __( 'A Select Box', 'fastcase-opinions' ),
-					'description'	=> __( 'A standard select box.', 'fastcase-opinions' ),
-					'type'			=> 'select',
-					'options'		=> array( 'drupal' => 'Drupal', 'joomla' => 'Joomla', 'wordpress' => 'WordPress' ),
-					'default'		=> 'wordpress'
-				),
-				array(
-					'id' 			=> 'radio_buttons',
-					'label'			=> __( 'Some Options', 'fastcase-opinions' ),
-					'description'	=> __( 'A standard set of radio buttons.', 'fastcase-opinions' ),
-					'type'			=> 'radio',
-					'options'		=> array( 'superman' => 'Superman', 'batman' => 'Batman', 'ironman' => 'Iron Man' ),
-					'default'		=> 'batman'
-				),
-				array(
-					'id' 			=> 'multiple_checkboxes',
-					'label'			=> __( 'Some Items', 'fastcase-opinions' ),
-					'description'	=> __( 'You can select multiple items and they will be stored as an array.', 'fastcase-opinions' ),
-					'type'			=> 'checkbox_multi',
-					'options'		=> array( 'square' => 'Square', 'circle' => 'Circle', 'rectangle' => 'Rectangle', 'triangle' => 'Triangle' ),
-					'default'		=> array( 'circle', 'triangle' )
-				)
+				
 			)
 		);
 
-		$settings['extra'] = array(
-			'title'					=> __( 'Extra', 'fastcase-opinions' ),
-			'description'			=> __( 'These are some extra input fields that maybe aren\'t as common as the others.', 'fastcase-opinions' ),
-			'fields'				=> array(
-				array(
-					'id' 			=> 'number_field',
-					'label'			=> __( 'A Number' , 'fastcase-opinions' ),
-					'description'	=> __( 'This is a standard number field - if this field contains anything other than numbers then the form will not be submitted.', 'fastcase-opinions' ),
-					'type'			=> 'number',
-					'default'		=> '',
-					'placeholder'	=> __( '42', 'fastcase-opinions' )
-				),
-				array(
-					'id' 			=> 'colour_picker',
-					'label'			=> __( 'Pick a colour', 'fastcase-opinions' ),
-					'description'	=> __( 'This uses WordPress\' built-in colour picker - the option is stored as the colour\'s hex code.', 'fastcase-opinions' ),
-					'type'			=> 'color',
-					'default'		=> '#21759B'
-				),
-				array(
-					'id' 			=> 'an_image',
-					'label'			=> __( 'An Image' , 'fastcase-opinions' ),
-					'description'	=> __( 'This will upload an image to your media library and store the attachment ID in the option field. Once you have uploaded an imge the thumbnail will display above these buttons.', 'fastcase-opinions' ),
-					'type'			=> 'image',
-					'default'		=> '',
-					'placeholder'	=> ''
-				),
-				array(
-					'id' 			=> 'multi_select_box',
-					'label'			=> __( 'A Multi-Select Box', 'fastcase-opinions' ),
-					'description'	=> __( 'A standard multi-select box - the saved data is stored as an array.', 'fastcase-opinions' ),
-					'type'			=> 'select_multi',
-					'options'		=> array( 'linux' => 'Linux', 'mac' => 'Mac', 'windows' => 'Windows' ),
-					'default'		=> array( 'linux' )
-				)
-			)
-		);
 
 		$settings = apply_filters( $this->parent->_token . '_settings_fields', $settings );
 
