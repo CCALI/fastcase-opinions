@@ -36,7 +36,7 @@ class Fastcase_Opinions_Post_Type {
 	 */
 	public $description;
 
-	public function __construct ( $post_type = 'fastcase_opinions', $plural = 'Fastcase Opinions', $single = 'Fastcase Opinion', $description = 'Court Opinions retreived using the Fastcase API.' ) {
+	public function __construct ( $post_type = 'Opinion', $plural = 'Opinions', $single = 'Opinion', $description = 'Court Opinions retreived using the Fastcase API.' ) {
 
 		if ( ! $post_type || ! $plural || ! $single ) return;
 
