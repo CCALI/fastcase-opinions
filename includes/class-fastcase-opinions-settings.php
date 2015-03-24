@@ -77,14 +77,6 @@ class Fastcase_Opinions_Settings {
 	 */
 	public function settings_assets () {
 
-		// We're including the farbtastic script & styles here because they're needed for the colour picker
-		// If you're not including a colour picker field then you can leave these calls out as well as the farbtastic dependency for the wpt-admin-js script below
-		wp_enqueue_style( 'farbtastic' );
-    	wp_enqueue_script( 'farbtastic' );
-
-    	// We're including the WP media scripts here because they're needed for the image upload field
-    	// If you're not including an image upload then you can leave this function call out
-    	wp_enqueue_media();
 
     	wp_register_script( $this->parent->_token . '-settings-js', $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js', array( 'farbtastic', 'jquery' ), '1.0.0' );
     	wp_enqueue_script( $this->parent->_token . '-settings-js' );
@@ -115,7 +107,7 @@ class Fastcase_Opinions_Settings {
 				array(
 					'id' 			=> 'FCAPI_key_field',
 					'label'			=> __( 'Fastcase API Key' , 'fastcase-opinions' ),
-					'description'	=> __( 'This is your Fastcase PAI key. Please contact Fastcase about getting one.', 'fastcase-opinions' ),
+					'description'	=> __( 'This is your Fastcase API key. Please contact Fastcase about getting one.', 'fastcase-opinions' ),
 					'type'			=> 'text_secret',
 					'default'		=> '',
 					'placeholder'	=> __( 'API Key', 'fastcase-opinions' )
@@ -188,7 +180,7 @@ class Fastcase_Opinions_Settings {
 
 		// Build page HTML
 		$html = '<div class="wrap" id="' . $this->parent->_token . '_settings">' . "\n";
-			$html .= '<h2>' . __( 'Plugin Settings' , 'fastcase-opinions' ) . '</h2>' . "\n";
+			$html .= '<h2>' . __( 'Fastcase Opinions Settings' , 'fastcase-opinions' ) . '</h2>' . "\n";
 
 			$tab = '';
 			if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
