@@ -119,6 +119,16 @@ class Fastcase_Opinions_Settings {
 		$settings['extra'] = array(
 			'title'					=> __( 'Get an Opinion', 'fastcase-opinions'),
 			'description'			=> __( 'Enter a citation below', 'fastcase-opinions'),
+			'fields'				=> array(
+				array(
+					'id' => 'volume_field',
+					'label'	=> __( 'Volume' , 'fastcase-opinions' ),
+					'description'	=> __( 'The reporter volume number.', 'fastcase-opinions' ),
+					'type'	=> 'text',
+					'default'	=> '',
+					'placeholder'	=> __( '###', 'fastcase-opinions' )  
+				),
+			)
 		);
 
 
