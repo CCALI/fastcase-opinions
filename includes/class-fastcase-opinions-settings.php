@@ -126,7 +126,23 @@ class Fastcase_Opinions_Settings {
 					'description'	=> __( 'The reporter volume number.', 'fastcase-opinions' ),
 					'type'	=> 'text',
 					'default'	=> '',
-					'placeholder'	=> __( '###', 'fastcase-opinions' )  
+					'placeholder'	=> __( '347', 'fastcase-opinions' )  
+				),
+				array(
+					'id' => 'reporter_field',
+					'label'	=> __( 'Reporter' , 'fastcase-opinions' ),
+					'description'	=> __( 'The abbreviation for the reporter.', 'fastcase-opinions' ),
+					'type'	=> 'text',
+					'default'	=> '',
+					'placeholder'	=> __( 'U.S.', 'fastcase-opinions' )  
+				),
+				array(
+					'id' => 'page_field',
+					'label'	=> __( 'Page' , 'fastcase-opinions' ),
+					'description'	=> __( 'The reporter page number.', 'fastcase-opinions' ),
+					'type'	=> 'text',
+					'default'	=> '',
+					'placeholder'	=> __( '483', 'fastcase-opinions' )  
 				),
 			)
 		);
@@ -237,8 +253,7 @@ class Fastcase_Opinions_Settings {
 				$html .= '</h2>' . "\n";
 			}
 			if ($_GET['tab'] == 'extra'){
-				$html .= 'Hi!';
-				$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
+				$html .= '<form method="post" action="admin-post.php" enctype="multipart/form-data">' . "\n";
 
 				// Get settings fields
 				ob_start();
