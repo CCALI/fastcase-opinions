@@ -23,6 +23,7 @@
  * First we POST the JSON and that returns a public URL encoded in JSON.
  * Once we get the URL we'll GET the URL to return the actual case.
  */
+function prefix_admin_use_api() {
 extract($_POST);
 // data, hardcoded for now. Note the weird array(array()) construction for delaing with JSON list of citations.
 
@@ -94,4 +95,5 @@ mb_http_output("UTF-8");
 ob_start("mb_output_handler");
 htmlspecialchars($opinion);
 echo $dom->saveHTML($opinion);
+}
 ?>

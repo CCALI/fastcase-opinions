@@ -112,6 +112,10 @@ class Fastcase_Opinions {
 		// Handle localisation
 		$this->load_plugin_textdomain();
 		add_action( 'init', array( $this, 'load_localisation' ), 0 );
+		
+		//handle API request form action
+		add_action( 'admin_post_use_api', 'prefix_admin_use_api' );
+
 	} // End __construct ()
 
 	/**

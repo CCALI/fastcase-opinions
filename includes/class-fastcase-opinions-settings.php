@@ -264,6 +264,7 @@ class Fastcase_Opinions_Settings {
 				$html .= '<p class="submit">' . "\n";
 					$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . "\n";
 					$html .= '<input type="hidden" name="api_key_field" value="' . get_option('fco_FCAPI_key_field') . '" />' . "\n";
+					$html .= '<input type="hidden" name="action" value="use_api">';
 					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Get Opinion' , 'fastcase-opinions' ) ) . '" />' . "\n";
 				$html .= '</p>' . "\n";
 			$html .= '</form>' . "\n";
