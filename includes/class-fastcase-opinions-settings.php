@@ -226,7 +226,9 @@ class Fastcase_Opinions_Settings {
 
 				$html .= '</h2>' . "\n";
 			}
-
+			if ($_GET['tab'] == 'extra'){
+				$html .= 'Hi!';
+			} else {
 			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
 
 				// Get settings fields
@@ -240,6 +242,7 @@ class Fastcase_Opinions_Settings {
 					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Save Settings' , 'fastcase-opinions' ) ) . '" />' . "\n";
 				$html .= '</p>' . "\n";
 			$html .= '</form>' . "\n";
+			}
 		$html .= '</div>' . "\n";
 
 		echo $html;
