@@ -238,6 +238,19 @@ class Fastcase_Opinions_Settings {
 			}
 			if ($_GET['tab'] == 'extra'){
 				$html .= 'Hi!';
+				$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
+
+				// Get settings fields
+				ob_start();
+				settings_fields( $this->parent->_token . '_settings' );
+				do_settings_sections( $this->parent->_token . '_settings' );
+				$html .= ob_get_clean();
+
+				$html .= '<p class="submit">' . "\n";
+					$html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . "\n";
+					$html .= '<input name="Submit" type="submit" class="button-primary" value="' . esc_attr( __( 'Get Opinion' , 'fastcase-opinions' ) ) . '" />' . "\n";
+				$html .= '</p>' . "\n";
+			$html .= '</form>' . "\n";
 			} else {
 			$html .= '<form method="post" action="options.php" enctype="multipart/form-data">' . "\n";
 
