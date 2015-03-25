@@ -115,6 +115,11 @@ class Fastcase_Opinions_Settings {
 				
 			)
 		);
+		
+		$settings['extra'] = array(
+			'title'					=> __( 'Get an Opinion', 'fastcase-opinions'),
+			'description'			=> __( 'Enter a citation below', 'fastcase-opinions'),
+		);
 
 
 		$settings = apply_filters( $this->parent->_token . '_settings_fields', $settings );
