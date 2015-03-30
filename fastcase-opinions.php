@@ -24,7 +24,7 @@ require_once( 'includes/class-fastcase-opinions.php' );
 require_once( 'includes/class-fastcase-opinions-settings.php' );
 
 require_once('includes/fastcase-opinions-post-type.php');
-
+require_once('includes/fastcase-opinions-use-api.php');
 // Load plugin libraries
 require_once( 'includes/lib/class-fastcase-opinions-admin-api.php' );
 //require_once( 'includes/lib/class-fastcase-opinions-post-type.php' );
