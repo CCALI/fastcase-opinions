@@ -22,6 +22,7 @@
  * }
  * First we POST the JSON and that returns a public URL encoded in JSON.
  * Once we get the URL we'll GET the URL to return the actual case.
+ * Then we format it as a post for Wordpress.
  */
 function prefix_admin_use_api() {
 extract($_POST);
@@ -55,22 +56,23 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
  
 $result = curl_exec($ch);
 curl_close($ch);
-echo "<code>".$result."</code><hr>";
+//echo "<code>".$result."</code><hr>";
 $fcresult = (json_decode($result,true));
 extract($fcresult);
-echo "<code>".$GetPublicLinkResult['Result'][0]['FullCitation']."</code><hr>";
-echo "<code>".$GetPublicLinkResult['Result'][0]['Url']."</code><hr>";
+//echo "<code>".$GetPublicLinkResult['Result'][0]['FullCitation']."</code><hr>";
+//echo "<code>".$GetPublicLinkResult['Result'][0]['Url']."</code><hr>";
 
 // A short URL
-$short = "http://cca.li/shorten.php?longurl=".$GetPublicLinkResult['Result'][0]['Url'];
+//$short = "http://cca.li/shorten.php?longurl=".$GetPublicLinkResult['Result'][0]['Url'];
  
-$ch = curl_init();    
-curl_setopt($ch, CURLOPT_URL, $short); // set url
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-$shorturl = curl_exec($ch);
-curl_close($ch);
-echo "a short URL: <code>".$shorturl."</code><hr>";
+//$ch = curl_init();    
+//curl_setopt($ch, CURLOPT_URL, $short); // set url
+//curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//$shorturl = curl_exec($ch);
+//curl_close($ch);
+//echo "a short URL: <code>".$shorturl."</code><hr>";
 
+$title = $GetPublicLinkResult['Result'][0]['FullCitation'];
 // Using the URL, get the case
 $fcurl = $GetPublicLinkResult['Result'][0]['Url'];
 
@@ -94,6 +96,13 @@ mb_internal_encoding("UTF-8");
 mb_http_output("UTF-8");
 ob_start("mb_output_handler");
 htmlspecialchars($opinion);
-echo $dom->saveHTML($opinion);
+//echo $dom->saveHTML($opinion);
+// build a post
+$fc_opinion = array(
+    'post_title'  => $title,
+    'post_type'   => 'opinion',
+    'post_status' => 'draft',
+    );
+$post_id = wp_insert_post( $fc_opinion, $wp_error );
 }
 ?>
