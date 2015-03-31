@@ -96,13 +96,13 @@ mb_internal_encoding("UTF-8");
 mb_http_output("UTF-8");
 ob_start("mb_output_handler");
 htmlspecialchars($opinion);
-echo $dom->saveHTML($opinion);
+//echo $dom->saveHTML($opinion);
 // build a post
 $fc_opinion = array(
     'post_title'            => $title,
     'post_content'          => $dom->saveHTML($opinion),
     'post_author'           => 1,
-    'post_type'             => 'opinion',
+    'post_type'             => 'opinions',
     'post_status'           => 'draft',
     );
 print_r ($fc_opinion);
