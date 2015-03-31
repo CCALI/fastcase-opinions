@@ -105,7 +105,8 @@ $fc_opinion = array(
     'post_type'             => 'opinion',
     'post_status'           => 'draft',
     );
-
+print_r ($fc_opinion);
 $post_id = wp_insert_post( $fc_opinion, $wp_error );
+echo $post_id;
 }
 ?>
