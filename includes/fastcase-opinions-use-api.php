@@ -99,10 +99,11 @@ htmlspecialchars($opinion);
 //echo $dom->saveHTML($opinion);
 // build a post
 $fc_opinion = array(
-    'post_title'  => $title,
-    'post_content'=> $dom->saveHTML($opinion),
-    'post_type'   => 'opinion',
-    'post_status' => 'draft',
+    'post_title'            => $title,
+    'post_content'          => $dom->saveHTML($opinion),
+    'post_author'           => 1,
+    'post_type'             => 'opinion',
+    'post_status'           => 'draft',
     );
 
 $post_id = wp_insert_post( $fc_opinion, $wp_error );
