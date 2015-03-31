@@ -41,7 +41,7 @@ $data = array(
               );
 // make it JSON
 $data_json = json_encode($data);
-echo "<code>".$data_json."</code>";
+//echo "<code>".$data_json."</code>";
 //die;
 // init endpoint
 $ch = curl_init("https://services.fastcase.com/REST/ResearchServices.svc/GetPublicLink");
