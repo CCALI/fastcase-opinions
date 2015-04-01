@@ -105,8 +105,13 @@ $fc_opinion = array(
     'post_type'             => 'opinions',
     'post_status'           => 'draft',
     );
-print_r ($fc_opinion);
+//print_r ($fc_opinion);
 $post_id = wp_insert_post( $fc_opinion, $wp_error );
-echo $post_id;
+//echo $post_id;
+// this is a hack to open the new psot in an edit window
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$extra = '/post.php?post='.$post_id.'&action=edit';
+header("Location: http://$host$uri/$extra");
 }
 ?>
