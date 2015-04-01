@@ -89,6 +89,13 @@ $dom->validateOnParse = true;
 # The @ before the method call suppresses any warnings that
 # loadHTML might throw because of invalid HTML in the page.
 @$dom->loadHTML($html);
+//strip out style attributes
+$domx = new DOMXPath($dom);
+$items = $domx->query("//div[@style]");
+
+foreach($items as $item) {
+  $item->removeAttribute("style");
+}
 $opinion = $dom->getElementById('theDocument');
 //echo "<code>".var_dump($opinion)."</code>";
 //echo $opinion->nodeValue;
@@ -109,6 +116,7 @@ $fc_opinion = array(
 $post_id = wp_insert_post( $fc_opinion, $wp_error );
 //echo $post_id;
 // this is a hack to open the new psot in an edit window
+// Is there a WordPress way to do this?
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $extra = '/post.php?post='.$post_id.'&action=edit';
