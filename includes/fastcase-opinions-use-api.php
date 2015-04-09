@@ -60,7 +60,7 @@ curl_close($ch);
 $fcresult = (json_decode($result,true));
 extract($fcresult);
 //catch error from bad cite
-if (!$GetPublicLinkResult['Result'][0]['FullCitation']){
+if (!isset($GetPublicLinkResult['Result'][0]['FullCitation'])){
   echo 'Bad citation, try again.';
 } else {
 
