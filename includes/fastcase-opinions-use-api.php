@@ -62,7 +62,10 @@ extract($fcresult);
 //catch error from bad cite
 if (!isset($GetPublicLinkResult['Result'][0]['FullCitation'])){
   echo 'Bad citation, try again.';
-  return;
+  $host  = $_SERVER['HTTP_HOST'];
+  $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+  $extra = 'options-general.php?page=fastcase_opinions_settings&tab=extra';
+  header("Location: http://$host$uri/$extra");
 } else {
 
 $title = $GetPublicLinkResult['Result'][0]['FullCitation'];
