@@ -26,7 +26,7 @@
  */
 function prefix_admin_use_api() {
 extract($_POST);
-// data, hardcoded for now. Note the weird array(array()) construction for delaing with JSON list of citations.
+// data, hardcoded for now. Note the weird array(array()) construction for dealing with JSON list of citations.
 
 $data = array(
               "Context"=>array(
@@ -59,18 +59,10 @@ curl_close($ch);
 //echo "<code>".$result."</code><hr>";
 $fcresult = (json_decode($result,true));
 extract($fcresult);
-//echo "<code>".$GetPublicLinkResult['Result'][0]['FullCitation']."</code><hr>";
-//echo "<code>".$GetPublicLinkResult['Result'][0]['Url']."</code><hr>";
-
-// A short URL
-//$short = "http://cca.li/shorten.php?longurl=".$GetPublicLinkResult['Result'][0]['Url'];
- 
-//$ch = curl_init();    
-//curl_setopt($ch, CURLOPT_URL, $short); // set url
-//curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//$shorturl = curl_exec($ch);
-//curl_close($ch);
-//echo "a short URL: <code>".$shorturl."</code><hr>";
+//catch error from bad cite
+if (!$GetPublicLinkResult['Result'][0]['FullCitation']){
+  echo 'Bad citation, try again.';
+} else {
 
 $title = $GetPublicLinkResult['Result'][0]['FullCitation'];
 // Using the URL, get the case
@@ -121,5 +113,6 @@ $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 $extra = '/post.php?post='.$post_id.'&action=edit';
 header("Location: http://$host$uri/$extra");
+}
 }
 ?>
