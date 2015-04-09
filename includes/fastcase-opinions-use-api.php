@@ -62,6 +62,7 @@ extract($fcresult);
 //catch error from bad cite
 if (!isset($GetPublicLinkResult['Result'][0]['FullCitation'])){
   echo 'Bad citation, try again.';
+  return;
 } else {
 
 $title = $GetPublicLinkResult['Result'][0]['FullCitation'];
